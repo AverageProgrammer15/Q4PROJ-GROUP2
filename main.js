@@ -31,3 +31,35 @@ function submit(outputid){
         window.alert(Result)
     }
 }
+
+function previewquarter(num, outputid){
+
+    OutputInsert = document.getElementById(outputid)
+    // Note: Make the htmls for each quarter and put then in their respective variables below
+    Quarter1_html = ""
+    Quarter2_html = ""
+    Quarter3_html = ""
+    Quarter4_html = ""
+
+ try{
+       switch(num){
+        case "1":
+            OutputInsert.innerHTML = Quarter1_html
+            break
+        case "2":
+            OutputInsert.innerHTML = Quarter2_html 
+            break
+        case "3":
+            OutputInsert.innerHTML = Quarter3_html
+            break
+        case "4":
+            OutputInsert.innerHTML = Quarter4_html
+            break
+        default:
+            window.alert("No data found for this quarter")
+       }
+    } catch{
+        window.alert("An error occured")
+    }
+
+} 
