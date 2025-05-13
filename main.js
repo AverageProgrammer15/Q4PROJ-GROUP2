@@ -11,7 +11,7 @@ function checkifcomplete(ids){
 }
 
 function submit(outputid){
-    Status = checkifcomplete(["id1", "id2", "id3"])
+    Status = checkifcomplete(["id1", "id2", "id3"]) //Placeholders - used for testing
 
     Result = "N/A"
     if (Status == true){
