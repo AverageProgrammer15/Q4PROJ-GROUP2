@@ -62,4 +62,68 @@ function previewquarter(num, outputid){
         window.alert("An error occured")
     }
 
-} 
+}
+
+function feedbackSystem(memberId) {
+  var inputId = 'rating_' + memberId;
+  var outputId = 'finalRating_' + memberId;
+  var inputElement = document.getElementById(inputId);
+  var ratingElement = document.getElementById(outputId);
+
+  var givenRating = parseInt(inputElement.value);
+
+  var value = inputElement.value.trim();
+
+  var givenRating = parseInt(value);
+
+  var result = "";
+  var color = "";
+
+  switch (givenRating) {
+    case 1:
+    case 2:
+        result = "Rating: Poor";
+        color = "red";
+        break;
+    case 3:
+    case 4:
+        result = "Rating: Needs Improvement";
+        color = "orange";
+        break;
+    case 5:
+    case 6:
+        result = "Rating: Satisfactory";
+        color = "goldenrod";
+        break;
+    case 7:
+    case 8:
+        result = "Rating: Above Satisfactory";
+        color = "blue";
+        break;
+    case 9:
+    case 10:
+        result = "Rating: Excellent";
+        color = "green";
+        break;
+    default:
+        result = "Rating: --";
+        color = "black";
+        break;
+  }
+
+  ratingElement.innerText = result;
+  ratingElement.style.color = color;
+}
+
+function submitAllRatings() {
+  const members = ['sofia', 'carl', 'calvin', 'allen', 'ramon'];
+
+    for (let memberId of members) {
+    let input = document.getElementById('rating_' + memberId);
+    if (!input || input.value.trim() === "" || isNaN(parseInt(input.value))) {
+      window.alert("Please fill out the form for all members.");
+      return;
+    }
+  
+  members.forEach(memberId => feedbackSystem(memberId));
+}
