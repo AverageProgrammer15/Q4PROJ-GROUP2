@@ -1,1 +1,41 @@
-
+#main {
+	min-height: 100vh;
+	padding: 20px;
+}
+#profile-pic {
+	width: 100%;
+	height: 100%;
+}
+#profiles-profile-pic {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+#title, #profile-title {
+	text-align: center;
+}
+#navbar-link {
+	color: #FFFFFF;
+}
+#feedback-buttons {
+	text-align: center;
+}
+#footer {
+	background-color: #343a40;
+	color: #FFFFFF;
+	padding: 20px;
+	text-align: left;
+	line-height: 1;
+}
+#footer-footer {
+	text-align: center;
+}
+#line-break {
+	background-color: #FFFFFF;
+}
+#section {
+	text-align: center;
+}
+#finalRating {
+	text-align: center;
+}
