@@ -1,6 +1,7 @@
 #main {
 	min-height: 100vh;
 	padding: 20px;
+   background-color: #90D1CA !important;
         
 }
 #profile-pic {
@@ -40,6 +41,4 @@
 #finalRating {
 	text-align: center;
 }
-.container .mb-3 .mt-3 .p-5{
-     background-color: #90D1CA;
-}
+
