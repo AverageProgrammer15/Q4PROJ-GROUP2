@@ -1,6 +1,7 @@
 #main {
 	min-height: 100vh;
 	padding: 20px;
+      background-color: #387478;
 }
 #profile-pic {
 	width: 100%;
@@ -39,6 +40,4 @@
 #finalRating {
 	text-align: center;
 }
-#body  {
-  background-color: #387478;
-}
+
