@@ -15,7 +15,7 @@
 	text-align: center;
 }
 #navbar-link {
-	color: #243642;
+	color: #E2F1E7;
 }
 #feedback-buttons {
 	text-align: center;
@@ -38,4 +38,7 @@
 }
 #finalRating {
 	text-align: center;
+}
+#navbar {
+        color: #387478;
 }
