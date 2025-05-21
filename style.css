@@ -1,7 +1,6 @@
 #main {
 	min-height: 100vh;
 	padding: 20px;
-      background-color: #387478;
 }
 #profile-pic {
 	width: 100%;
@@ -40,4 +39,6 @@
 #finalRating {
 	text-align: center;
 }
-
+#container mb-3 mt-3 p-5{
+      background-color: #387478;
+}
