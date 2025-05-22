@@ -1,5 +1,6 @@
-function checkifcomplete(ids, score_ids){
+function checkifcomplete(ids, score_ids, show_average = false){
     Finished = true
+    AllRatings = []
     for (i = 0; i < ids.length; i++){
         InputUser = document.getElementById(ids[i]).value;
         if (InputUser.length  == 0){
@@ -7,6 +8,13 @@ function checkifcomplete(ids, score_ids){
             document.getElementById(score_ids[i]).innerHTML = "Rating: <span class='text-danger'>Not edited</span>" 
         }else{
             GetRating = Number(InputUser)
+            if (GetRating > 10){
+                GetRating = 10
+                document.getElementById(ids[i]).value = 10
+            }
+            
+            
+            AllRatings.push(GetRating*10)
 
             if(GetRating >= 1 && GetRating < 5){
                 document.getElementById(score_ids[i]).innerHTML = "Rating: <span class='text-danger'>Bad</span>" 
@@ -16,7 +24,17 @@ function checkifcomplete(ids, score_ids){
                 document.getElementById(score_ids[i]).innerHTML = "Rating: <span class='text-success'>Good</span>" 
             }else if(GetRating == 10){
                 document.getElementById(score_ids[i]).innerHTML = "Rating: <span class='text-success'>Excellent</span>" 
-            }
+            } 
+        }
+    }
+
+    if ((show_average == true)){
+        if (Finished == true){
+        let sum = AllRatings.reduce((a, b) => a + b, 0);
+        let average = (sum / AllRatings.length).toFixed(2);
+        alert("The average rating is: " + average);
+        } else{
+            alert("Please fill out everything..")
         }
     }
 
@@ -56,8 +74,6 @@ function submit(outputid){
     
 }
 
-
-//Scrapped function 
 function previewquarter(num, outputid){
 
     OutputInsert = document.getElementById(outputid)
@@ -157,6 +173,7 @@ function previewquarter(num, outputid){
 function submitAllRatings(){
     Status = checkifcomplete(
         ["rating_allen", "rating_carl", "rating_ramon", "rating_calvin", "rating_sofia"], 
-        ["finalRating_allen", "finalRating_carl", "finalRating_ramon", "finalRating_calvin", "finalRating_sofia"]
+        ["finalRating_allen", "finalRating_carl", "finalRating_ramon", "finalRating_calvin", "finalRating_sofia"],
+        true
     )
 }
