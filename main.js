@@ -1,9 +1,22 @@
-function checkifcomplete(ids){
+function checkifcomplete(ids, score_ids){
     Finished = true
     for (i = 0; i < ids.length; i++){
         InputUser = document.getElementById(ids[i]).value;
         if (InputUser.length  == 0){
             Finished = false
+            document.getElementById(score_ids[i]).innerHTML = "Rating: <span class='text-danger'>Not edited</span>" 
+        }else{
+            GetRating = Number(InputUser)
+
+            if(GetRating >= 1 && GetRating < 5){
+                document.getElementById(score_ids[i]).innerHTML = "Rating: <span class='text-danger'>Bad</span>" 
+            }else if(GetRating >= 5 && GetRating <= 7){
+                document.getElementById(score_ids[i]).innerHTML = "Rating: <span class='text-warning'>OK</span>" 
+            } else if(GetRating >=8 && GetRating <=9){
+                document.getElementById(score_ids[i]).innerHTML = "Rating: <span class='text-success'>Good</span>" 
+            }else if(GetRating == 10){
+                document.getElementById(score_ids[i]).innerHTML = "Rating: <span class='text-success'>Excellent</span>" 
+            }
         }
     }
 
@@ -11,7 +24,10 @@ function checkifcomplete(ids){
 }
 
 function submit(outputid){
-    Status = checkifcomplete(["id1", "id2", "id3"]) //Placeholders - used for testing
+    Status = checkifcomplete(
+        ["rating_allen", "rating_carl", "rating_ramon", "rating_calvin", "rating_sofia"], 
+        ["finalRating_allen", "finalRating_carl", "finalRating_ramon", "finalRating_calvin", "finalRating_sofia"]
+    )
 
     Result = "N/A"
     if (Status == true){
@@ -30,6 +46,14 @@ function submit(outputid){
     } catch{
         window.alert(Result)
     }
+
+    
+    document.getElementById("rating_allen").value = "";
+    document.getElementById("rating_carl").value = "";
+    document.getElementById("rating_ramon").value = "";
+    document.getElementById("rating_calvin").value = "";
+    document.getElementById("rating_sofia").value = "";
+    
 }
 
 function previewquarter(num, outputid){
@@ -64,66 +88,73 @@ function previewquarter(num, outputid){
 
 }
 
-function feedbackSystem(memberId) {
-  var inputId = 'rating_' + memberId;
-  var outputId = 'finalRating_' + memberId;
-  var inputElement = document.getElementById(inputId);
-  var ratingElement = document.getElementById(outputId);
+// function feedbackSystem(memberId) {
+//   var inputId = 'rating_' + memberId;
+//   var outputId = 'finalRating_' + memberId;
+//   var inputElement = document.getElementById(inputId);
+//   var ratingElement = document.getElementById(outputId);
 
-  var givenRating = parseInt(inputElement.value);
+//   var givenRating = parseInt(inputElement.value);
 
-  var value = inputElement.value.trim();
+//   var value = inputElement.value.trim();
 
-  var givenRating = parseInt(value);
+//   var givenRating = parseInt(value);
 
-  var result = "";
-  var color = "";
+//   var result = "";
+//   var color = "";
 
-  switch (givenRating) {
-    case 1:
-    case 2:
-        result = "Rating: Poor";
-        color = "red";
-        break;
-    case 3:
-    case 4:
-        result = "Rating: Needs Improvement";
-        color = "orange";
-        break;
-    case 5:
-    case 6:
-        result = "Rating: Satisfactory";
-        color = "goldenrod";
-        break;
-    case 7:
-    case 8:
-        result = "Rating: Above Satisfactory";
-        color = "blue";
-        break;
-    case 9:
-    case 10:
-        result = "Rating: Excellent";
-        color = "green";
-        break;
-    default:
-        result = "Rating: --";
-        color = "black";
-        break;
-  }
+//   switch (givenRating) {
+//     case 1:
+//     case 2:
+//         result = "Rating: Poor";
+//         color = "red";
+//         break;
+//     case 3:
+//     case 4:
+//         result = "Rating: Needs Improvement";
+//         color = "orange";
+//         break;
+//     case 5:
+//     case 6:
+//         result = "Rating: Satisfactory";
+//         color = "goldenrod";
+//         break;
+//     case 7:
+//     case 8:
+//         result = "Rating: Above Satisfactory";
+//         color = "blue";
+//         break;
+//     case 9:
+//     case 10:
+//         result = "Rating: Excellent";
+//         color = "green";
+//         break;
+//     default:
+//         result = "Rating: --";
+//         color = "black";
+//         break;
+//   }
 
-  ratingElement.innerText = result;
-  ratingElement.style.color = color;
-}
+//   ratingElement.innerText = result;
+//   ratingElement.style.color = color;
+// }
 
-function submitAllRatings() {
-  const members = ['sofia', 'carl', 'calvin', 'allen', 'ramon'];
+// function submitAllRatings(){
+//   const members = ['sofia', 'carl', 'calvin', 'allen', 'ramon'];
 
-    for (let memberId of members) {
-    let input = document.getElementById('rating_' + memberId);
-    if (!input || input.value.trim() === "" || isNaN(parseInt(input.value))) {
-      window.alert("Please fill out the form for all members.");
-      return;
-    }
+//     for (let memberId of members) {
+//     let input = document.getElementById('rating_' + memberId);
+//     if (!input || input.value.trim() === "" || isNaN(parseInt(input.value))) {
+//       window.alert("Please fill out the form for all members.");
+//       return;
+//     }
   
-  members.forEach(memberId => feedbackSystem(memberId));
+//   members.forEach(memberId => feedbackSystem(memberId));
+// }
+
+function submitAllRatings(){
+    Status = checkifcomplete(
+        ["rating_allen", "rating_carl", "rating_ramon", "rating_calvin", "rating_sofia"], 
+        ["finalRating_allen", "finalRating_carl", "finalRating_ramon", "finalRating_calvin", "finalRating_sofia"]
+    )
 }
