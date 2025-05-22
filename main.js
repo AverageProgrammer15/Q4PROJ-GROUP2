@@ -56,6 +56,8 @@ function submit(outputid){
     
 }
 
+
+//Scrapped function 
 function previewquarter(num, outputid){
 
     OutputInsert = document.getElementById(outputid)
