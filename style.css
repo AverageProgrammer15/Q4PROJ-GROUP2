@@ -43,3 +43,18 @@
 background-color: #135D66;
 }
 
+.card-body{
+	background-color: darkgrey;
+	border-radius: 50px;
+	border-style: dashed;
+}
+
+#profile-pic{
+	border-style: solid;
+	border-radius: 50px;
+}
+
+#title{
+	font-family: 'Courier New', Courier, monospace;
+	font-weight: bold;
+}
