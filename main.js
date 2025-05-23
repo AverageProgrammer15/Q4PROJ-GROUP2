@@ -1,3 +1,4 @@
+// A function that checks if all inputs have been filled
 function checkifcomplete(ids, score_ids, show_average = false){
     Finished = true
     AllRatings = []
@@ -41,6 +42,7 @@ function checkifcomplete(ids, score_ids, show_average = false){
     return Finished
 }
 
+// When pressing the submit btn
 function submit(outputid){
     Status = checkifcomplete(
         ["rating_allen", "rating_carl", "rating_ramon", "rating_calvin", "rating_sofia"], 
