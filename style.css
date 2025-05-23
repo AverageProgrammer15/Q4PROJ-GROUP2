@@ -58,3 +58,9 @@ background-color: #135D66;
 	font-family: 'Courier New', Courier, monospace;
 	font-weight: bold;
 }
+
+#message{
+	border-radius: 35px;
+	border-width: 5px;
+	border-color: black;
+}
